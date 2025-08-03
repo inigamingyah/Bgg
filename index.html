@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roblox UI Clone</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 10px;
+      background-color: #f8f8f8;
+      border-bottom: 1px solid #ccc;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar div {
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .robux-button {
+      font-weight: bold;
+      position: relative;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 40px;
+      right: 0;
+      width: 230px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      display: none;
+      z-index: 1000;
+    }
+
+    .dropdown .header {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .dropdown .header img {
+      width: 22px;
+      height: 22px;
+      margin-right: 10px;
+    }
+
+    .dropdown .header span {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .dropdown ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dropdown ul li {
+      padding: 12px 16px;
+      font-size: 15px;
+      color: #444;
+      cursor: pointer;
+    }
+
+    .dropdown ul li:hover {
+      background-color: #f2f2f2;
+    }
+
+    .profile-icons {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .profile {
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .profile img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid green;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 15px 10px 5px;
+    }
+
+    .game-row {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .game-card {
+      min-width: 200px;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #f2f2f2;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .game-card .desc {
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    .game-card .desc small {
+      color: gray;
+    }
+
+    .recommended-grid {
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+      overflow-x: auto;
+    }
+
+    .recommended-card {
+      min-width: 110px;
+      background-color: #f2f2f2;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      overflow: hidden;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .recommended-card img {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+    }
+
+    .recommended-card .info {
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div>Charts</div>
+    <div onclick="window.location.href='https://www.roblox.com/catalog/'">Marketplace</div>
+    <div>Create</div>
+    <div class="robux-button" onclick="toggleDropdown()">Robux
+      <div class="dropdown" id="robuxDropdown">
+        <div class="header">
+          <img src="download (1).png" alt="Robux Icon">
+          <span>145,716</span>
+        </div>
+        <ul>
+          <li>Buy Robux</li>
+          <li>My Transactions</li>
+          <li>Redeem Roblox Codes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROFILE LIST -->
+  <div class="profile-icons">
+    <div class="profile">
+      <img src="1000148878-removebg-preview.png" alt="Avatar">
+      <div>Connect</div>
+    </div>
+    <div class="profile">
+      <img src="noFilter (1).webp" alt="Avatar">
+      <div>Stressed</div>
+    </div>
+    <div class="profile">
+      <img src="noFilter.webp" alt="Avatar">
+      <div>OneWorldFlyer</div>
+    </div>
+  </div>
+
+  <!-- SPONSORED -->
+  <div class="section-title">Sponsored →</div>
+  <div class="game-row">
+    <div class="game-card">
+      <img src="download (8).jpeg" alt="Game 1">
+      <div class="desc">
+        <strong>[UPD] fight in a school</strong><br>
+        <small>👍 79% Rating</small>
+      </div>
+    </div>
+    <div class="game-card">
+      <img src="noFilter (3).webp" alt="Game 2">
+      <div class="desc">
+        <strong>Inverse</strong><br>
+        <small>👍 54% Rating</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECOMMENDED -->
+  <div class="section-title">Recommended For You</div>
+  <div class="recommended-grid">
+    <div class="recommended-card">
+      <img src="noFilter (4).webp" alt="Game">
+      <div class="info">
+        <strong>[LETTERS] Cant Say the Word</strong><br>
+        👍 70%<br>👥 74
+      </div>
+    </div>
+    <div class="recommended-card">
+      <img src="noFilter (5).webp" alt="Game">
+      <div class="info">
+        <strong>text to speech</strong><br>
+        👍 59%<br>👥 31
+      </div>
+    </div>
+    <div class="recommended-card">
+      <img src="noFilter (6).webp" alt="Game">
+      <div class="info">
+        <strong>Free Animate [Beta]</strong><br>
+        👍 96%<br>👥 1.3K
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT DROPDOWN -->
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById('robuxDropdown');
+      dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
+
+    document.addEventListener('click', function (event) {
+      const dropdown = document.getElementById('robuxDropdown');
+      const button = document.querySelector('.robux-button');
+      if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
